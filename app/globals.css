@@ -159,6 +159,19 @@ button {
   background: transparent;
   image-rendering: -webkit-optimize-contrast;
 }
+@media (min-width: 860px) {
+  .hero-media {
+    justify-content: flex-start;
+    /* Let the image spill wider than its grid column while staying inline. */
+    overflow: visible;
+  }
+  .hero-image {
+    width: 200%;
+    max-width: none;
+    /* Nudge slightly to the left. */
+    margin-left: -6%;
+  }
+}
 
 /* Video */
 .video {
