@@ -109,7 +109,7 @@ button {
 /* Header / Logo */
 .site-header {
   background: var(--white);
-  padding: clamp(32px, 6vw, 64px) 0 clamp(20px, 4vw, 40px);
+  padding: clamp(18px, 3vw, 32px) 0 clamp(4px, 1vw, 12px);
 }
 .logo-wrap {
   display: flex;
@@ -124,13 +124,13 @@ button {
 
 /* Hero */
 .hero {
-  padding: clamp(24px, 5vw, 64px) 0 clamp(32px, 5vw, 56px);
+  padding: clamp(8px, 2vw, 24px) 0 clamp(16px, 3vw, 32px);
 }
 @media (min-width: 860px) {
-  /* Sit the hero so the video begins to peek above the fold,
+  /* Sit the hero so a strong slice of the video peeks above the fold,
      hinting the user to scroll. */
   .hero {
-    min-height: calc(100vh - 260px);
+    min-height: calc(100vh - 360px);
     display: flex;
     align-items: center;
   }
@@ -193,7 +193,7 @@ button {
 
 /* Video */
 .video {
-  padding: clamp(24px, 5vw, 64px) 0;
+  padding: clamp(16px, 3vw, 40px) 0 clamp(24px, 5vw, 64px);
 }
 .video-frame {
   position: relative;
