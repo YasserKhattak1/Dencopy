@@ -124,7 +124,19 @@ button {
 
 /* Hero */
 .hero {
-  padding: clamp(24px, 5vw, 64px) 0 clamp(48px, 8vw, 96px);
+  padding: clamp(24px, 5vw, 64px) 0 clamp(32px, 5vw, 56px);
+}
+@media (min-width: 860px) {
+  /* Sit the hero so the video begins to peek above the fold,
+     hinting the user to scroll. */
+  .hero {
+    min-height: calc(100vh - 260px);
+    display: flex;
+    align-items: center;
+  }
+  .hero > .container {
+    width: 100%;
+  }
 }
 .hero-grid {
   display: grid;
@@ -160,16 +172,22 @@ button {
   image-rendering: -webkit-optimize-contrast;
 }
 @media (min-width: 860px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 440px) 1fr;
+    gap: clamp(16px, 2vw, 32px);
+  }
+  .hero-copy {
+    max-width: 440px;
+  }
   .hero-media {
     justify-content: flex-start;
-    /* Let the image spill wider than its grid column while staying inline. */
     overflow: visible;
   }
   .hero-image {
-    width: 200%;
+    width: 170%;
     max-width: none;
-    /* Nudge slightly to the left. */
-    margin-left: -6%;
+    /* Push the image left to fill the empty centre space. */
+    margin-left: -28%;
   }
 }
 
