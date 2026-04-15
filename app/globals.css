@@ -1,7 +1,7 @@
 /* Den — landing page
    Brand:
-   - Typography: Roboto (300 / 400 / 500)
-   - Palette: white-led, Den Blue #03a9f4 for primary action
+   - Typography: Roboto (300 / 400 / 500) via next/font
+   - Palette: white-led, Den Blue #03a9f4 primary action
 */
 
 :root {
@@ -46,7 +46,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+  font-family: var(--font-roboto), system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.55;
@@ -154,8 +154,8 @@ button {
 }
 .hero-image {
   width: 100%;
-  max-width: 560px;
   height: auto;
+  max-width: 560px;
   border-radius: var(--radius-lg);
   image-rendering: -webkit-optimize-contrast;
 }
@@ -289,13 +289,10 @@ button {
   padding: 20px;
   z-index: 50;
   opacity: 0;
-  transition: opacity 200ms var(--ease);
+  animation: backdropIn 220ms var(--ease) forwards;
 }
-.dialog-backdrop[hidden] {
-  display: none;
-}
-.dialog-backdrop.is-open {
-  opacity: 1;
+@keyframes backdropIn {
+  to { opacity: 1; }
 }
 
 .dialog {
@@ -307,11 +304,12 @@ button {
   padding: clamp(28px, 4vw, 40px);
   box-shadow: var(--shadow-lg);
   transform: translateY(8px);
-  transition: transform 220ms var(--ease);
+  animation: dialogIn 240ms var(--ease) forwards;
 }
-.dialog-backdrop.is-open .dialog {
-  transform: translateY(0);
+@keyframes dialogIn {
+  to { transform: translateY(0); }
 }
+
 .dialog-close {
   position: absolute;
   top: 12px;
@@ -391,13 +389,9 @@ button {
   box-shadow: 0 0 0 3px rgba(255, 138, 101, 0.22);
 }
 .field-error {
-  display: none;
   margin: 0;
   font-size: 0.8125rem;
   color: var(--red);
-}
-.field.has-error .field-error {
-  display: block;
 }
 
 .form-status {
@@ -413,7 +407,7 @@ button {
 }
 
 .form.is-success .field,
-.form.is-success #submitBtn {
+.form.is-success button[type='submit'] {
   display: none;
 }
 
