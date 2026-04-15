@@ -152,11 +152,22 @@ button {
   display: flex;
   justify-content: center;
 }
+.hero-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow:
+    0 1px 0 rgba(31, 47, 67, 0.04),
+    0 30px 60px -20px rgba(31, 47, 67, 0.18);
+}
 .hero-image {
   width: 100%;
-  height: auto;
-  max-width: 560px;
-  border-radius: var(--radius-lg);
+  height: 100%;
+  object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -410,6 +421,27 @@ button {
 .form.is-success button[type='submit'] {
   display: none;
 }
+
+/* Subtle entrance for a calm premium feel */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.site-header .logo,
+.hero-copy,
+.hero-image-frame,
+.video-frame,
+.newsletter-inner,
+.contact-inner,
+.footer-inner {
+  animation: rise 700ms var(--ease) both;
+}
+.hero-copy         { animation-delay: 120ms; }
+.hero-image-frame  { animation-delay: 180ms; }
+.video-frame       { animation-delay: 260ms; }
+.newsletter-inner  { animation-delay: 340ms; }
+.contact-inner     { animation-delay: 420ms; }
+.footer-inner      { animation-delay: 500ms; }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {

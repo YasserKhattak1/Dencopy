@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" role="img" aria-label="Den">
+  <title>Den</title>
+  <!-- Mark: a calm shield/home form in brand teal, echoing the Den identity on a white background. -->
+  <g>
+    <path
+      d="M22 10 L42 22 L42 50 C42 62 32 72 22 72 C12 72 2 62 2 50 L2 22 Z"
+      fill="#4ccead"
+    />
+    <path
+      d="M22 28 L32 34 L32 48 C32 53 27 57 22 57 C17 57 12 53 12 48 L12 34 Z"
+      fill="#ffffff"
+    />
+  </g>
+  <!-- Wordmark: Roboto Light, navy, matching brand typography. -->
+  <text
+    x="58"
+    y="52"
+    font-family="Roboto, system-ui, -apple-system, Segoe UI, Arial, sans-serif"
+    font-weight="300"
+    font-size="44"
+    fill="#1f2f43"
+    letter-spacing="-0.5"
+  >den</text>
+</svg>

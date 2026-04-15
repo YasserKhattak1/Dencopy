@@ -11,7 +11,7 @@ export default function Page() {
       <header className="site-header">
         <div className="container logo-wrap">
           <Image
-            src="/den-logo.png"
+            src="/den-logo.svg"
             alt="Den"
             width={160}
             height={64}
@@ -30,15 +30,17 @@ export default function Page() {
               </h1>
             </div>
             <div className="hero-media">
-              <Image
-                src="/hero-image.png"
-                alt=""
-                width={1200}
-                height={1200}
-                className="hero-image"
-                priority
-                sizes="(min-width: 860px) 50vw, 100vw"
-              />
+              <div className="hero-image-frame">
+                <Image
+                  src="/hero-image.svg"
+                  alt=""
+                  width={1200}
+                  height={1200}
+                  className="hero-image"
+                  priority
+                  sizes="(min-width: 860px) 50vw, 100vw"
+                />
+              </div>
             </div>
           </div>
         </section>

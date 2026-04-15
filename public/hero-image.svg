@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-label="" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Subtle base gradient: white-led, with a whisper of warmth. -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5f7fa"/>
+    </linearGradient>
+
+    <!-- Ambient product shadow. -->
+    <radialGradient id="shadow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1f2f43" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#1f2f43" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Face gradient of the device. -->
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f2f4f8"/>
+    </linearGradient>
+
+    <!-- Den Blue indicator glow. -->
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#03a9f4" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#03a9f4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background plate -->
+  <rect width="800" height="800" fill="url(#bg)"/>
+
+  <!-- Very soft brand swatches floating in the distance (restrained, calm). -->
+  <circle cx="140" cy="160" r="60" fill="#4ccead" opacity="0.10"/>
+  <circle cx="660" cy="180" r="40" fill="#a763ff" opacity="0.10"/>
+  <circle cx="700" cy="640" r="80" fill="#03a9f4" opacity="0.08"/>
+  <circle cx="160" cy="660" r="50" fill="#ff8a65" opacity="0.10"/>
+
+  <!-- Floor shadow -->
+  <ellipse cx="400" cy="640" rx="240" ry="28" fill="url(#shadow)"/>
+
+  <!-- Switch plate (the product) -->
+  <g transform="translate(260 220)">
+    <!-- Plate shadow -->
+    <rect x="-6" y="10" width="292" height="392" rx="36" fill="#1f2f43" opacity="0.06"/>
+    <!-- Plate body -->
+    <rect x="0" y="0" width="280" height="380" rx="32" fill="url(#face)" stroke="#dbdfe6" stroke-width="1"/>
+
+    <!-- Toggle track -->
+    <rect x="60" y="86" width="160" height="64" rx="32" fill="#eef1f5"/>
+    <!-- Toggle knob (ON, Den Blue) -->
+    <circle cx="188" cy="118" r="24" fill="#03a9f4"/>
+    <circle cx="188" cy="118" r="48" fill="url(#glow)"/>
+
+    <!-- Slider 1 -->
+    <rect x="60" y="196" width="160" height="10" rx="5" fill="#eef1f5"/>
+    <circle cx="168" cy="201" r="10" fill="#4ccead"/>
+
+    <!-- Slider 2 -->
+    <rect x="60" y="238" width="160" height="10" rx="5" fill="#eef1f5"/>
+    <circle cx="124" cy="243" r="10" fill="#a763ff"/>
+
+    <!-- Label dots -->
+    <circle cx="72" cy="296" r="6" fill="#dbdfe6"/>
+    <circle cx="92" cy="296" r="6" fill="#dbdfe6"/>
+    <circle cx="112" cy="296" r="6" fill="#dbdfe6"/>
+
+    <!-- Den mark, understated -->
+    <g transform="translate(220 312)" opacity="0.9">
+      <path d="M0 0 L14 8 L14 28 C14 36 7 42 0 42 C-7 42 -14 36 -14 28 L-14 8 Z" fill="#4ccead"/>
+      <path d="M0 12 L6 16 L6 28 C6 31 3 34 0 34 C-3 34 -6 31 -6 28 L-6 16 Z" fill="#ffffff"/>
+    </g>
+  </g>
+</svg>
