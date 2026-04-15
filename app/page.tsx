@@ -26,21 +26,19 @@ export default function Page() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <h1 id="hero-heading" className="hero-heading">
-                The future of switches is coming soon.
+                The future of switches is coming.
               </h1>
             </div>
             <div className="hero-media">
-              <div className="hero-image-frame">
-                <Image
-                  src="/hero-image.svg"
-                  alt=""
-                  width={1200}
-                  height={1200}
-                  className="hero-image"
-                  priority
-                  sizes="(min-width: 860px) 50vw, 100vw"
-                />
-              </div>
+              <Image
+                src="/hero-image.svg"
+                alt=""
+                width={1200}
+                height={1200}
+                className="hero-image"
+                priority
+                sizes="(min-width: 860px) 50vw, 100vw"
+              />
             </div>
           </div>
         </section>

@@ -152,22 +152,11 @@ button {
   display: flex;
   justify-content: center;
 }
-.hero-image-frame {
-  position: relative;
-  width: 100%;
-  max-width: 560px;
-  aspect-ratio: 1 / 1;
-  border-radius: 20px;
-  overflow: hidden;
-  background: #ffffff;
-  box-shadow:
-    0 1px 0 rgba(31, 47, 67, 0.04),
-    0 30px 60px -20px rgba(31, 47, 67, 0.18);
-}
 .hero-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 640px;
+  height: auto;
+  background: transparent;
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -252,6 +241,32 @@ button {
   width: 100%;
 }
 
+.btn-ghost {
+  background: transparent;
+  color: var(--slate);
+  border-color: var(--light-grey);
+}
+.btn-ghost:hover {
+  color: var(--navy);
+  border-color: var(--grey);
+  background: #fafbfc;
+}
+.btn-ghost[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.form-actions .btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+}
+
 /* Contact */
 .contact {
   padding: clamp(20px, 3vw, 32px) 0;
@@ -289,71 +304,53 @@ button {
   letter-spacing: 0.01em;
 }
 
-/* Dialog */
-.dialog-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(31, 47, 67, 0.45);
+/* Inline newsletter panel (no modal — pushes the page down) */
+.newsletter-stack {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
-  z-index: 50;
-  opacity: 0;
-  animation: backdropIn 220ms var(--ease) forwards;
+  gap: 0;
 }
-@keyframes backdropIn {
-  to { opacity: 1; }
-}
-
-.dialog {
-  position: relative;
-  background: var(--white);
-  border-radius: var(--radius-lg);
+.newsletter-panel {
   width: 100%;
   max-width: 440px;
-  padding: clamp(28px, 4vw, 40px);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(8px);
-  animation: dialogIn 240ms var(--ease) forwards;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  max-height: 0;
+  transition:
+    opacity 220ms var(--ease),
+    transform 260ms var(--ease),
+    max-height 320ms var(--ease),
+    margin-top 260ms var(--ease);
 }
-@keyframes dialogIn {
-  to { transform: translateY(0); }
+.newsletter-panel.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 720px;
+  margin-top: 8px;
 }
-
-.dialog-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border: 0;
-  background: transparent;
-  color: var(--slate);
-  border-radius: 999px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 180ms var(--ease), color 180ms var(--ease);
+.newsletter-panel[hidden] {
+  display: none;
 }
-.dialog-close:hover {
-  background: var(--light-grey);
-  color: var(--navy);
+.newsletter-panel-inner {
+  background: var(--white);
+  border: 1px solid var(--light-grey);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 36px);
+  box-shadow: var(--shadow-md);
 }
-.dialog-close:focus-visible {
-  outline: 2px solid var(--den-blue);
-  outline-offset: 2px;
-}
-.dialog-title {
+.newsletter-title {
   font-weight: 300;
-  font-size: 1.625rem;
+  font-size: 1.5rem;
   line-height: 1.2;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   color: var(--navy);
 }
-.dialog-desc {
-  margin: 0 0 24px;
+.newsletter-desc {
+  margin: 0 0 20px;
   color: var(--slate);
   font-size: 0.9375rem;
 }
@@ -429,7 +426,7 @@ button {
 }
 .site-header .logo,
 .hero-copy,
-.hero-image-frame,
+.hero-image,
 .video-frame,
 .newsletter-inner,
 .contact-inner,
@@ -437,7 +434,7 @@ button {
   animation: rise 700ms var(--ease) both;
 }
 .hero-copy         { animation-delay: 120ms; }
-.hero-image-frame  { animation-delay: 180ms; }
+.hero-image        { animation-delay: 180ms; }
 .video-frame       { animation-delay: 260ms; }
 .newsletter-inner  { animation-delay: 340ms; }
 .contact-inner     { animation-delay: 420ms; }
