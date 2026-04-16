@@ -169,16 +169,22 @@ button {
   max-width: 640px;
   height: auto;
   background: transparent;
-  image-rendering: -webkit-optimize-contrast;
+  /* Avoid -webkit-optimize-contrast: on iOS Safari it can render
+     SVG-embedded rasters with blocky/fuzzy artefacts. Auto lets the
+     browser pick the best filter for the device. */
+  image-rendering: auto;
 }
 
 /* Mobile: stack tightly, centre everything, let the hero image fill
    the screen width with only a small gap for the scroll cue. */
 @media (max-width: 859.98px) {
+  .site-header {
+    padding-bottom: clamp(20px, 6vw, 40px);
+  }
   .hero {
     /* svh accounts for mobile browser chrome so we don't overflow. */
-    min-height: calc(100svh - 110px);
-    padding-top: clamp(4px, 1vw, 12px);
+    min-height: calc(100svh - 140px);
+    padding-top: clamp(20px, 5vw, 36px);
     padding-bottom: clamp(8px, 2vw, 16px);
     display: flex;
     align-items: center;
