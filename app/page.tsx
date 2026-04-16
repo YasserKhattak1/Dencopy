@@ -31,14 +31,14 @@ export default function Page() {
               </h1>
             </div>
             <div className="hero-media">
-              <Image
+              {/* Plain <img> so the SVG renders pixel-accurately on iOS
+                  Safari (next/image can downsample SVG-embedded rasters). */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/hero-image.svg"
                 alt=""
-                width={1600}
-                height={900}
                 className="hero-image"
-                priority
-                sizes="(min-width: 860px) 50vw, 100vw"
+                decoding="async"
               />
             </div>
           </div>
