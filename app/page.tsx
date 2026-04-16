@@ -60,6 +60,21 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="finishes" aria-label="Variety of finishes">
+          <div className="finishes-wrap">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/finishes.png"
+              alt="Den switches available in a variety of finishes"
+              className="finishes-image"
+              decoding="async"
+              loading="lazy"
+              width={2400}
+              height={1350}
+            />
+          </div>
+        </section>
+
         <section className="newsletter" aria-label="Newsletter signup">
           <div className="container newsletter-inner">
             <NewsletterDialog />
