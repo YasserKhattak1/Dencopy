@@ -182,9 +182,9 @@ button {
     padding-bottom: clamp(16px, 4vw, 28px);
   }
   .hero {
-    /* svh accounts for mobile browser chrome so we don't overflow. */
-    min-height: calc(100svh - 130px);
-    padding-top: clamp(24px, 6vw, 40px);
+    /* Leave ~180px for logo + a slice of the video peeking under. */
+    min-height: calc(100svh - 220px);
+    padding-top: clamp(20px, 5vw, 36px);
     padding-bottom: clamp(8px, 2vw, 16px);
     display: flex;
     align-items: flex-start;
@@ -194,7 +194,7 @@ button {
     width: 100%;
   }
   .hero-grid {
-    gap: clamp(20px, 5vw, 36px);
+    gap: clamp(18px, 4vw, 28px);
     justify-items: center;
     text-align: center;
   }
@@ -217,17 +217,18 @@ button {
   }
   .hero-image {
     display: block;
-    width: 112vw;        /* over-width compensates for the shot's
-                            internal whitespace so the product reads
-                            much larger on phones */
+    /* Grow to fill the screen: 132vw cropped via a -16vw offset
+       so the product sits centred and reads noticeably larger. */
+    width: 132vw;
     max-width: none;
     height: auto;
-    margin-left: -6vw;
-    /* Shift the shot down ~1cm so it breathes below the headline. */
-    margin-top: clamp(28px, 7vw, 44px);
+    margin-left: -16vw;
+    /* Small downward nudge below the headline. */
+    margin-top: clamp(16px, 4vw, 28px);
   }
   .newsletter {
-    padding-bottom: clamp(40px, 8vw, 56px);
+    padding-top: clamp(24px, 5vw, 40px);
+    padding-bottom: clamp(24px, 5vw, 40px);
   }
 }
 
@@ -253,8 +254,9 @@ button {
   .hero-image {
     width: 170%;
     max-width: none;
-    /* Push the image left to fill the empty centre space. */
-    margin-left: -28%;
+    /* Push the image left to fill the empty centre space — 28% into
+       the headline column, plus an extra ~1cm nudge to the left. */
+    margin-left: calc(-28% - 38px);
   }
 }
 
@@ -515,57 +517,6 @@ button {
 .form.is-success .field,
 .form.is-success button[type='submit'] {
   display: none;
-}
-
-/* Scroll cue — small Den Blue chevron fixed at the bottom of the
-   viewport on mobile only. Fades out once the user scrolls. */
-.scroll-cue-wrap {
-  position: fixed;
-  left: 50%;
-  bottom: clamp(12px, 3vw, 20px);
-  transform: translateX(-50%);
-  z-index: 40;
-  opacity: 1;
-  transition: opacity 360ms var(--ease), visibility 360ms;
-}
-.scroll-cue-wrap.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-@media (min-width: 860px) {
-  .scroll-cue-wrap {
-    display: none;
-  }
-}
-.scroll-cue {
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--den-blue);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  animation: scrollBounce 2.6s ease-in-out infinite;
-  transition: color 180ms var(--ease);
-}
-.scroll-cue:hover {
-  color: var(--den-blue-hover);
-}
-.scroll-cue:focus-visible {
-  outline: 2px solid var(--den-blue);
-  outline-offset: 4px;
-  border-radius: 4px;
-}
-.scroll-cue svg {
-  display: block;
-}
-@keyframes scrollBounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-6px); }
 }
 
 /* Thank-you pill — replaces the form after a successful signup. */
