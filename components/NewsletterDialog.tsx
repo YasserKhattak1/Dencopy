@@ -117,87 +117,105 @@ export default function NewsletterDialog() {
         hidden={!open}
       >
         <div className="newsletter-panel-inner">
-          <h3 className="newsletter-title">Sign up to newsletter</h3>
-          <p className="newsletter-desc">
-            Be the first to hear when the future of switches arrives.
-          </p>
-
-          <form
-            className={`form${isSuccess ? ' is-success' : ''}`}
-            onSubmit={onSubmit}
-            noValidate
-          >
-            <div className={`field${errors.name ? ' has-error' : ''}`}>
-              <label htmlFor="name">Name</label>
-              <input
-                ref={firstFieldRef}
-                id="name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                value={name}
-                onChange={(e) => {
-                  setName(e.target.value);
-                  if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
-                }}
-                required
-                maxLength={80}
-                aria-invalid={errors.name ? true : undefined}
-                disabled={isLoading}
-              />
-              {errors.name && <p className="field-error" role="alert">{errors.name}</p>}
+          {isSuccess ? (
+            <div className="newsletter-thankyou" role="status" aria-live="polite">
+              <span className="thankyou-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width={22} height={22} focusable="false">
+                  <path
+                    d="M5 12.5l4.5 4.5L19 7.5"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
+              <span className="thankyou-pill">Thanks for joining the Den family</span>
+              <p className="thankyou-note">
+                We&rsquo;ll be in touch the moment the future of switches arrives.
+              </p>
             </div>
+          ) : (
+            <>
+              <h3 className="newsletter-title">Sign up to newsletter</h3>
+              <p className="newsletter-desc">
+                Be the first to hear when the future of switches arrives.
+              </p>
 
-            <div className={`field${errors.email ? ' has-error' : ''}`}>
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
-                }}
-                required
-                maxLength={254}
-                aria-invalid={errors.email ? true : undefined}
-                disabled={isLoading}
-              />
-              {errors.email && <p className="field-error" role="alert">{errors.email}</p>}
-            </div>
+              <form className="form" onSubmit={onSubmit} noValidate>
+                <div className={`field${errors.name ? ' has-error' : ''}`}>
+                  <label htmlFor="name">Name</label>
+                  <input
+                    ref={firstFieldRef}
+                    id="name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    value={name}
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
+                    }}
+                    required
+                    maxLength={80}
+                    aria-invalid={errors.name ? true : undefined}
+                    disabled={isLoading}
+                  />
+                  {errors.name && <p className="field-error" role="alert">{errors.name}</p>}
+                </div>
 
-            <div className="form-actions">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                disabled={isLoading}
-              >
-                {isLoading ? 'Signing up…' : 'Sign up'}
-              </button>
-              <button
-                type="button"
-                className="btn btn-ghost"
-                onClick={closePanel}
-                disabled={isLoading}
-              >
-                Cancel
-              </button>
-            </div>
+                <div className={`field${errors.email ? ' has-error' : ''}`}>
+                  <label htmlFor="email">Email</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
+                    }}
+                    required
+                    maxLength={254}
+                    aria-invalid={errors.email ? true : undefined}
+                    disabled={isLoading}
+                  />
+                  {errors.email && <p className="field-error" role="alert">{errors.email}</p>}
+                </div>
 
-            <p
-              className={
-                'form-status' +
-                (status.kind === 'success' ? ' is-success' : '') +
-                (status.kind === 'error' ? ' is-error' : '')
-              }
-              role="status"
-              aria-live="polite"
-            >
-              {status.kind === 'success' || status.kind === 'error' ? status.message : ''}
-            </p>
-          </form>
+                <div className="form-actions">
+                  <button
+                    type="submit"
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Signing up…' : 'Sign up'}
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-ghost"
+                    onClick={closePanel}
+                    disabled={isLoading}
+                  >
+                    Cancel
+                  </button>
+                </div>
+
+                <p
+                  className={
+                    'form-status' +
+                    (status.kind === 'error' ? ' is-error' : '')
+                  }
+                  role="status"
+                  aria-live="polite"
+                >
+                  {status.kind === 'error' ? status.message : ''}
+                </p>
+              </form>
+            </>
+          )}
         </div>
       </div>
     </div>
