@@ -130,7 +130,7 @@ button {
   /* Sit the hero so a strong slice of the video peeks above the fold,
      hinting the user to scroll. */
   .hero {
-    min-height: calc(100vh - 360px);
+    min-height: calc(100vh - 380px);
     display: flex;
     align-items: center;
   }
