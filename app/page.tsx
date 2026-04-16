@@ -34,8 +34,8 @@ export default function Page() {
               <Image
                 src="/hero-image.svg"
                 alt=""
-                width={1200}
-                height={1200}
+                width={1600}
+                height={900}
                 className="hero-image"
                 priority
                 sizes="(min-width: 860px) 50vw, 100vw"

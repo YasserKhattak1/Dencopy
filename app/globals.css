@@ -179,21 +179,21 @@ button {
    the screen width with only a small gap for the scroll cue. */
 @media (max-width: 859.98px) {
   .site-header {
-    padding-bottom: clamp(20px, 6vw, 40px);
+    padding-bottom: clamp(8px, 2vw, 16px);
   }
   .hero {
     /* svh accounts for mobile browser chrome so we don't overflow. */
-    min-height: calc(100svh - 140px);
-    padding-top: clamp(20px, 5vw, 36px);
+    min-height: calc(100svh - 130px);
+    padding-top: clamp(10px, 3vw, 20px);
     padding-bottom: clamp(8px, 2vw, 16px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   .hero > .container {
     width: 100%;
   }
   .hero-grid {
-    gap: clamp(16px, 4vw, 28px);
+    gap: clamp(20px, 5vw, 36px);
     justify-items: center;
     text-align: center;
   }
@@ -203,6 +203,13 @@ button {
   }
   .hero-heading {
     text-align: center;
+  }
+  /* Let the image break out of the container gutter so it spans the
+     full viewport width and reads at full impact. */
+  .hero-media {
+    width: 100vw;
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
   }
   .hero-image {
     width: 100%;
