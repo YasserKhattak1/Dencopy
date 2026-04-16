@@ -246,6 +246,8 @@ button {
        vertical centre — aligned roughly with the upper third of the
        product shot. */
     padding-top: clamp(60px, 9vw, 130px);
+    /* Nudge the text ~0.5cm to the right on desktop. */
+    transform: translateX(19px);
   }
   .hero-media {
     justify-content: flex-start;
