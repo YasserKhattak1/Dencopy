@@ -131,10 +131,7 @@ export default function NewsletterDialog() {
                   />
                 </svg>
               </span>
-              <span className="thankyou-pill">Thanks for joining the Den family</span>
-              <p className="thankyou-note">
-                We&rsquo;ll be in touch the moment the future of switches arrives.
-              </p>
+              <span className="thankyou-pill">Thanks for joining.</span>
             </div>
           ) : (
             <>
