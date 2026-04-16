@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import NewsletterDialog from '@/components/NewsletterDialog';
-import ScrollCue from '@/components/ScrollCue';
 
 export default function Page() {
   return (
@@ -81,8 +80,6 @@ export default function Page() {
           <p className="copyright">Copyright Den Innovation Ltd 2026</p>
         </div>
       </footer>
-
-      <ScrollCue />
     </>
   );
 }
