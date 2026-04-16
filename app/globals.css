@@ -217,12 +217,15 @@ button {
   .hero-grid {
     grid-template-columns: minmax(0, 440px) 1fr;
     gap: clamp(16px, 2vw, 32px);
+    /* Top-align so the headline sits up with the top of the product
+       shot rather than centred against its full bounding box. */
+    align-items: start;
   }
   .hero-copy {
     max-width: 440px;
-    /* Lift the headline up a touch so it reads as centred with the
-       visual weight of the product shot, not the raw bounding box. */
-    transform: translateY(-6%);
+    /* Small downward nudge so the headline lands on the visual line
+       of the first row of switches, not absolute top of the SVG. */
+    padding-top: clamp(16px, 3vw, 32px);
   }
   .hero-media {
     justify-content: flex-start;
