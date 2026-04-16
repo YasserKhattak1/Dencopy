@@ -31,14 +31,17 @@ export default function Page() {
               </h1>
             </div>
             <div className="hero-media">
-              {/* Plain <img> so the SVG renders pixel-accurately on iOS
-                  Safari (next/image can downsample SVG-embedded rasters). */}
+              {/* Flat PNG rasterised once from the brand SVG so mobile
+                  browsers don't resample the multi-layer SVG at tiny
+                  sizes — that's what was producing the fuzzy borders. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/hero-image.svg"
+                src="/hero-image.png"
                 alt=""
                 className="hero-image"
                 decoding="async"
+                width={2400}
+                height={1350}
               />
             </div>
           </div>

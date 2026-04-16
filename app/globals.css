@@ -217,16 +217,14 @@ button {
   }
   .hero-image {
     display: block;
-    width: 112vw;        /* scale over-width to compensate for the SVG's
-                            internal whitespace — crops the empty margins
-                            and makes the product shot read much larger */
+    width: 112vw;        /* over-width compensates for the shot's
+                            internal whitespace so the product reads
+                            much larger on phones */
     max-width: none;
     height: auto;
     margin-left: -6vw;
-    /* Keep SVG crisp on iOS: let the browser pick its best filter and
-     promote to its own layer to avoid stale texture downsampling. */
-    image-rendering: auto;
-    transform: translateZ(0);
+    /* Shift the shot down ~1cm so it breathes below the headline. */
+    margin-top: clamp(28px, 7vw, 44px);
   }
   .newsletter {
     padding-bottom: clamp(40px, 8vw, 56px);
