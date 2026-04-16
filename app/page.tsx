@@ -50,7 +50,7 @@ export default function Page() {
           <div className="container">
             <div className="video-frame">
               <iframe
-                src="https://player.vimeo.com/video/261310683?title=0&byline=0&portrait=0&dnt=1"
+                src="https://player.vimeo.com/video/1183830152?title=0&byline=0&portrait=0&dnt=1"
                 title="Den video"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
