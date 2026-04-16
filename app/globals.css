@@ -285,9 +285,40 @@ button {
   border: 0;
 }
 
+/* Finishes showcase — full-bleed image between video and newsletter */
+.finishes {
+  padding: clamp(32px, 5vw, 64px) 0;
+}
+.finishes-wrap {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+.finishes-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 859.98px) {
+  .finishes {
+    padding: clamp(24px, 5vw, 40px) 0;
+  }
+  .finishes-wrap {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    border-radius: 0;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+}
+
 /* Newsletter CTA */
 .newsletter {
-  padding: clamp(24px, 4vw, 48px) 0 clamp(32px, 5vw, 56px);
+  padding: clamp(32px, 6vw, 64px) 0 clamp(32px, 5vw, 56px);
 }
 .newsletter-inner {
   display: flex;
