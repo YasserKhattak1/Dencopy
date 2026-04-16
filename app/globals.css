@@ -230,9 +230,10 @@ button {
   }
   .hero-copy {
     max-width: 440px;
-    /* Small downward nudge so the headline lands on the visual line
-       of the first row of switches, not absolute top of the SVG. */
-    padding-top: clamp(16px, 3vw, 32px);
+    /* Sit the headline halfway between the top of the hero and its
+       vertical centre — aligned roughly with the upper third of the
+       product shot. */
+    padding-top: clamp(60px, 9vw, 130px);
   }
   .hero-media {
     justify-content: flex-start;
