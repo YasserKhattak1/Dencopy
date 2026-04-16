@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import NewsletterDialog from '@/components/NewsletterDialog';
+import ScrollCue from '@/components/ScrollCue';
 
 export default function Page() {
   return (
@@ -43,7 +44,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="video" aria-label="Product video">
+        <section id="video" className="video" aria-label="Product video">
           <div className="container">
             <div className="video-frame">
               <iframe
@@ -77,6 +78,8 @@ export default function Page() {
           <p className="copyright">Copyright Den Innovation Ltd 2026</p>
         </div>
       </footer>
+
+      <ScrollCue />
     </>
   );
 }

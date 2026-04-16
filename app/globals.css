@@ -171,6 +171,29 @@ button {
   background: transparent;
   image-rendering: -webkit-optimize-contrast;
 }
+
+/* Mobile: stack tightly, centre everything, image follows the text. */
+@media (max-width: 859.98px) {
+  .hero-grid {
+    gap: clamp(16px, 4vw, 28px);
+    justify-items: center;
+    text-align: center;
+  }
+  .hero-copy {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .hero-heading {
+    text-align: center;
+  }
+  .hero-image {
+    max-width: 520px;
+  }
+  .newsletter {
+    padding-bottom: clamp(80px, 16vw, 120px);
+  }
+}
+
 @media (min-width: 860px) {
   .hero-grid {
     grid-template-columns: minmax(0, 440px) 1fr;
@@ -178,6 +201,9 @@ button {
   }
   .hero-copy {
     max-width: 440px;
+    /* Lift the headline up a touch so it reads as centred with the
+       visual weight of the product shot, not the raw bounding box. */
+    transform: translateY(-6%);
   }
   .hero-media {
     justify-content: flex-start;
@@ -448,6 +474,90 @@ button {
 .form.is-success .field,
 .form.is-success button[type='submit'] {
   display: none;
+}
+
+/* Scroll cue — a slow-bouncing Den Blue arrow fixed to the bottom of
+   the viewport. Fades out once the user starts scrolling. */
+.scroll-cue-wrap {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(16px, 3vw, 28px);
+  transform: translateX(-50%);
+  z-index: 40;
+  opacity: 1;
+  transition: opacity 360ms var(--ease), visibility 360ms;
+}
+.scroll-cue-wrap.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.scroll-cue {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--den-blue);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(3, 169, 244, 0.32);
+  animation: scrollBounce 2.6s ease-in-out infinite;
+  transition: background-color 180ms var(--ease), box-shadow 180ms var(--ease);
+}
+.scroll-cue:hover {
+  background: var(--den-blue-hover);
+  box-shadow: 0 10px 26px rgba(3, 169, 244, 0.42);
+}
+.scroll-cue:focus-visible {
+  outline: 2px solid var(--den-blue);
+  outline-offset: 3px;
+}
+.scroll-cue svg {
+  display: block;
+}
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* Thank-you pill — replaces the form after a successful signup. */
+.newsletter-thankyou {
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  text-align: center;
+  padding: 8px 0 4px;
+}
+.thankyou-check {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: rgba(3, 169, 244, 0.12);
+  color: var(--den-blue);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.thankyou-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--den-blue);
+  color: var(--white);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 6px 18px rgba(3, 169, 244, 0.25);
+}
+.thankyou-note {
+  margin: 0;
+  color: var(--slate);
+  font-size: 0.875rem;
 }
 
 /* Subtle entrance for a calm premium feel */
