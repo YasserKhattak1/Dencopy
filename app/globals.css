@@ -476,12 +476,12 @@ button {
   display: none;
 }
 
-/* Scroll cue — a slow-bouncing Den Blue arrow fixed to the bottom of
-   the viewport. Fades out once the user starts scrolling. */
+/* Scroll cue — small Den Blue chevron fixed at the bottom of the
+   viewport on mobile only. Fades out once the user scrolls. */
 .scroll-cue-wrap {
   position: fixed;
   left: 50%;
-  bottom: clamp(16px, 3vw, 28px);
+  bottom: clamp(12px, 3vw, 20px);
   transform: translateX(-50%);
   z-index: 40;
   opacity: 1;
@@ -492,35 +492,39 @@ button {
   visibility: hidden;
   pointer-events: none;
 }
+@media (min-width: 860px) {
+  .scroll-cue-wrap {
+    display: none;
+  }
+}
 .scroll-cue {
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
   border: 0;
-  background: var(--den-blue);
-  color: var(--white);
+  background: transparent;
+  color: var(--den-blue);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 8px 22px rgba(3, 169, 244, 0.32);
   animation: scrollBounce 2.6s ease-in-out infinite;
-  transition: background-color 180ms var(--ease), box-shadow 180ms var(--ease);
+  transition: color 180ms var(--ease);
 }
 .scroll-cue:hover {
-  background: var(--den-blue-hover);
-  box-shadow: 0 10px 26px rgba(3, 169, 244, 0.42);
+  color: var(--den-blue-hover);
 }
 .scroll-cue:focus-visible {
   outline: 2px solid var(--den-blue);
-  outline-offset: 3px;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 .scroll-cue svg {
   display: block;
 }
 @keyframes scrollBounce {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-8px); }
+  50%      { transform: translateY(-6px); }
 }
 
 /* Thank-you pill — replaces the form after a successful signup. */
