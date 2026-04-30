@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   description:
     'The future of switches is coming. Sign up to the Den newsletter to be the first to know.',
   icons: {
-    icon: '/den-logo.svg',
-    shortcut: '/den-logo.svg',
-    apple: '/den-logo.svg',
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 };
 
