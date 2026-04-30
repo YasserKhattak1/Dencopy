@@ -15,11 +15,12 @@ export const metadata: Metadata = {
     'The future of switches is coming. Sign up to the Den newsletter to be the first to know.',
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico?v=2', sizes: 'any' },
+      { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
+      { url: '/icon-512.png?v=2', type: 'image/png', sizes: '512x512' },
     ],
-    shortcut: '/favicon.ico',
-    apple: '/favicon.svg',
+    shortcut: '/favicon.ico?v=2',
+    apple: '/apple-touch-icon.png?v=2',
   },
 };
 
