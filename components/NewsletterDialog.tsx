@@ -104,7 +104,7 @@ export default function NewsletterDialog() {
           aria-controls="newsletter-panel"
           onClick={() => setOpen(true)}
         >
-          Sign up to newsletter
+          Sign Up To Our Newsletter
         </button>
       )}
 
@@ -135,9 +135,9 @@ export default function NewsletterDialog() {
             </div>
           ) : (
             <>
-              <h3 className="newsletter-title">Sign up to newsletter</h3>
+              <h3 className="newsletter-title">Sign up to our newsletter</h3>
               <p className="newsletter-desc">
-                Be the first to hear when the future of switches arrives.
+                Be the first to hear when our products launch.
               </p>
 
               <form className="form" onSubmit={onSubmit} noValidate>
@@ -188,7 +188,7 @@ export default function NewsletterDialog() {
                     className="btn btn-primary"
                     disabled={isLoading}
                   >
-                    {isLoading ? 'Signing up…' : 'Sign up'}
+                    {isLoading ? 'Signing Up…' : 'Sign Up'}
                   </button>
                   <button
                     type="button"

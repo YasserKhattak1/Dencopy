@@ -10,9 +10,14 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: 'Den — The future of switches is coming.',
+  title: 'Den',
   description:
     'The future of switches is coming. Sign up to the Den newsletter to be the first to know.',
+  icons: {
+    icon: '/den-logo.svg',
+    shortcut: '/den-logo.svg',
+    apple: '/den-logo.svg',
+  },
 };
 
 export const viewport: Viewport = {
