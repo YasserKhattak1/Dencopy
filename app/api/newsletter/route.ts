@@ -38,6 +38,18 @@ export async function POST(request: Request) {
       VALUES (${name}, ${email})
       ON CONFLICT (email) DO NOTHING
     `;
+
+    // Fire-and-forget email notification to the team via FormSubmit.
+    fetch('https://formsubmit.co/ajax/Yasser@getden.co.uk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        name,
+        email,
+        _subject: `New Den newsletter signup: ${name}`,
+      }),
+    }).catch(() => {});
+
     return NextResponse.json({ ok: true });
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : 'Unknown error';
