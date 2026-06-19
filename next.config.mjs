@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Static export so this can deploy to GitHub Pages (or any static host).
-  output: 'export',
   images: {
-    // Required for `next export` — no Image Optimization server.
+    // Unoptimized so the SVG logo passes through cleanly.
     unoptimized: true,
   },
   // Emit trailing slashes so GitHub Pages resolves routes cleanly.
