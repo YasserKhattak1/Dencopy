@@ -39,16 +39,22 @@ export async function POST(request: Request) {
       ON CONFLICT (email) DO NOTHING
     `;
 
-    // Fire-and-forget email notification to the team via FormSubmit.
-    fetch('https://formsubmit.co/ajax/Yasser@getden.co.uk', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        name,
-        email,
-        _subject: `New Den newsletter signup: ${name}`,
-      }),
-    }).catch(() => {});
+    // Email notification to the team via FormSubmit.
+    // Must be awaited — Vercel kills the execution context after the
+    // response is sent, so fire-and-forget fetches never complete.
+    try {
+      await fetch('https://formsubmit.co/ajax/Yasser@getden.co.uk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          _subject: `New Den newsletter signup: ${name}`,
+        }),
+      });
+    } catch {
+      // FormSubmit failure should never block the user response.
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err: unknown) {
