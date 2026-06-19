@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { getSupabase, NEWSLETTER_TABLE } from '@/lib/supabase';
 
 type Status =
   | { kind: 'idle' }
@@ -59,36 +58,32 @@ export default function NewsletterDialog() {
       return;
     }
 
-    const supabase = getSupabase();
-    if (!supabase) {
-      setStatus({
-        kind: 'error',
-        message:
-          'Newsletter is not configured. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.',
-      });
-      return;
-    }
-
     setStatus({ kind: 'loading' });
 
-    const { error } = await supabase
-      .from(NEWSLETTER_TABLE)
-      .insert({ name: name.trim(), email: email.trim() });
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name.trim(), email: email.trim() }),
+      });
 
-    if (error) {
-      // Postgres unique_violation on email
-      if (error.code === '23505' || /duplicate|unique/i.test(error.message)) {
-        setStatus({ kind: 'success', message: "You're already signed up — thanks!" });
+      const data = await res.json();
+
+      if (!res.ok) {
+        setStatus({
+          kind: 'error',
+          message: data.error || 'Something went wrong. Please try again.',
+        });
         return;
       }
+
+      setStatus({ kind: 'success', message: "Thanks — you're on the list." });
+    } catch {
       setStatus({
         kind: 'error',
-        message: error.message || 'Something went wrong. Please try again.',
+        message: 'Something went wrong. Please try again.',
       });
-      return;
     }
-
-    setStatus({ kind: 'success', message: "Thanks — you're on the list." });
   }
 
   const isLoading = status.kind === 'loading';
